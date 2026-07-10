@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Showcase } from "@/components/Showcase";
 import { Features } from "@/components/Features";
+import { Tesla } from "@/components/Tesla";
 import { Gallery } from "@/components/Gallery";
 import { Pricing } from "@/components/Pricing";
 import { Business } from "@/components/Business";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <Showcase />
         <Features />
+        <Tesla />
         <Gallery />
         <Pricing />
         <Business />

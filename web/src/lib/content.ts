@@ -1,9 +1,29 @@
 export const NAV_LINKS = [
   { href: "#showcase", label: "기능" },
+  { href: "#tesla", label: "테슬라" },
   { href: "#screens", label: "화면" },
   { href: "#pricing", label: "요금제" },
   { href: "#business", label: "기업용" },
   { href: "#faq", label: "FAQ" },
+];
+
+export const TESLA_CAPABILITIES = [
+  {
+    title: "배터리·주행거리 실시간 동기화",
+    desc: "차에 타지 않아도 충전 상태와 총주행거리가 앱에 자동으로 반영됩니다.",
+  },
+  {
+    title: "슈퍼차저 충전 이력 자동 기록",
+    desc: "슈퍼차저 세션의 시간·위치·충전량·요금을 그대로 장부에 올립니다.",
+  },
+  {
+    title: "차량 상태 원격 조회",
+    desc: "실내온도, 주차 위치, 도어 상태까지 Wheelet 안에서 한눈에.",
+  },
+  {
+    title: "수동 입력 제로",
+    desc: "영수증도, 계기판 사진도 필요 없어요. 그냥 타고 다니세요.",
+  },
 ];
 
 export const HERO_STATS = [
