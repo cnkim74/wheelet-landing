@@ -7,7 +7,11 @@ export const NAV_LINKS = [
   { href: "#faq", label: "FAQ" },
 ];
 
-export const TESLA_CAPABILITIES = [
+export const TESLA_CAPABILITIES: {
+  title: string;
+  desc: string;
+  soon?: boolean;
+}[] = [
   {
     title: "배터리·주행거리 실시간 동기화",
     desc: "차에 타지 않아도 충전 상태와 총주행거리가 앱에 자동으로 반영됩니다.",
@@ -23,6 +27,34 @@ export const TESLA_CAPABILITIES = [
   {
     title: "수동 입력 제로",
     desc: "영수증도, 계기판 사진도 필요 없어요. 그냥 타고 다니세요.",
+  },
+  {
+    title: "슈퍼차저 찾기",
+    desc: "주변 슈퍼차저 위치와 실시간 혼잡도를 앱에서 바로 확인하세요.",
+    soon: true,
+  },
+];
+
+export const TESLA_STEPS = [
+  {
+    n: "01",
+    title: "‘테슬라 연결’ 선택",
+    desc: "Wheelet 앱 차고에서 테슬라 차량을 추가하고 ‘테슬라 연결’을 누릅니다.",
+  },
+  {
+    n: "02",
+    title: "테슬라 계정으로 로그인",
+    desc: "테슬라 공식 로그인 화면에서 인증해요. 비밀번호는 Wheelet에 저장되지 않습니다.",
+  },
+  {
+    n: "03",
+    title: "데이터 접근 권한 승인",
+    desc: "배터리·주행거리·충전 이력 조회 권한을 승인하면 연결이 끝납니다.",
+  },
+  {
+    n: "04",
+    title: "원클릭 동기화 시작",
+    desc: "이후엔 버튼 한 번으로 현재 상태를 최신으로 맞추고, 이력은 자동 기록됩니다.",
   },
 ];
 

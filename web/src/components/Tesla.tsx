@@ -1,6 +1,7 @@
 import { TESLA_CAPABILITIES } from "@/lib/content";
-import { PhoneFrame, GoldButton } from "./ui";
+import { PhoneFrame } from "./ui";
 import { Reveal } from "./Reveal";
+import { TeslaConnect } from "./TeslaConnect";
 
 const TESLA_RED = "#e82127";
 
@@ -12,7 +13,18 @@ function Bolt({ className }: { className?: string }) {
   );
 }
 
-function CheckBadge() {
+function CheckBadge({ soon = false }: { soon?: boolean }) {
+  if (soon) {
+    return (
+      <span className="mt-0.5 grid size-5 flex-none place-items-center rounded-full bg-white/10">
+        {/* clock — coming soon */}
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c9cdd4" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" className="size-3" aria-hidden>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 8v4l2.5 2.5" />
+        </svg>
+      </span>
+    );
+  }
   return (
     <span
       className="mt-0.5 grid size-5 flex-none place-items-center rounded-full"
@@ -72,21 +84,26 @@ export function Tesla() {
           <h2 className="text-[clamp(1.9rem,4.4vw,2.9rem)] font-black leading-[1.15]">
             테슬라 오너라면,
             <br />
-            <span className="text-gradient-gold">손도 대지 마세요</span>
+            <span className="text-gradient-gold">원클릭으로 현재 상태 동기화</span>
           </h2>
 
           <p className="max-w-lg text-base leading-relaxed text-mute-200 sm:text-[17px]">
-            테슬라 전용 API로 계정만 연결하면 끝. 배터리·주행거리·슈퍼차저
-            이력이 실시간으로 흘러 들어와, 차계부가 알아서 완성됩니다.
+            테슬라 전용 API로 계정을 한 번만 연결하면, 버튼 한 번에 배터리·주행거리가
+            지금 상태로 맞춰집니다. 슈퍼차저 충전 이력은 그 사이 자동으로 기록되고요.
           </p>
 
           <ul className="mt-1 flex flex-col gap-4">
             {TESLA_CAPABILITIES.map((c) => (
-              <li key={c.title} className="flex gap-3">
-                <CheckBadge />
+              <li key={c.title} className={`flex gap-3 ${c.soon ? "opacity-70" : ""}`}>
+                <CheckBadge soon={c.soon} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[15px] font-semibold text-fg">
+                  <span className="flex items-center gap-2 text-[15px] font-semibold text-fg">
                     {c.title}
+                    {c.soon && (
+                      <span className="rounded-full border border-white/15 bg-white/[0.06] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-mute-100">
+                        추후 제공
+                      </span>
+                    )}
                   </span>
                   <span className="text-sm leading-relaxed text-mute-300">
                     {c.desc}
@@ -96,9 +113,7 @@ export function Tesla() {
             ))}
           </ul>
 
-          <GoldButton href="#download" className="mt-3 w-fit px-6 py-3 text-sm">
-            테슬라 연결하고 시작하기
-          </GoldButton>
+          <TeslaConnect />
         </Reveal>
 
         {/* phone with floating live-data chips */}
