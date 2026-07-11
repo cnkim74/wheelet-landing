@@ -45,6 +45,8 @@ export type FleetMember = {
   user_id: string;
   role: string;
   email: string | null;
+  name: string | null;
+  phone: string | null;
   created_at: string;
 };
 

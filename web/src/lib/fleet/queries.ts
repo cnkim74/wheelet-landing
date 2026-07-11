@@ -26,8 +26,7 @@ export type DriverRow = FleetMember & {
 };
 
 function memberLabel(m: FleetMember): string {
-  const e = (m.email ?? "").trim();
-  return e || "이름 미지정";
+  return (m.name ?? "").trim() || (m.email ?? "").trim() || "이름 미지정";
 }
 
 function displayVehicle(v: FleetVehicle): string {

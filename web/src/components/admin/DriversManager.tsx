@@ -93,7 +93,16 @@ export function DriversManager({
                 key={m.id}
                 className="border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02]"
               >
-                <td className="px-4 py-3 font-medium">{m.label}</td>
+                <td className="px-4 py-3">
+                  <div className="flex flex-col">
+                    <span className="font-medium">{m.label}</span>
+                    {(m.phone || m.email) && (
+                      <span className="text-[11px] text-mute-400">
+                        {[m.phone, m.email].filter(Boolean).join(" · ")}
+                      </span>
+                    )}
+                  </div>
+                </td>
                 <td className="px-4 py-3">
                   <span className="rounded-full border border-white/12 px-2 py-0.5 text-[11px] text-mute-100">
                     {m.role === "manager" ? "매니저" : "기사"}
@@ -152,12 +161,26 @@ export function DriversManager({
               options={fleets.map((f) => ({ value: f.id, label: f.name }))}
             />
           )}
+          <div className="grid grid-cols-2 gap-3">
+            <Field
+              label="이름"
+              name="name"
+              required
+              defaultValue={editing?.name}
+              placeholder="김기사"
+            />
+            <Field
+              label="연락처"
+              name="phone"
+              defaultValue={editing?.phone}
+              placeholder="010-1234-5678"
+            />
+          </div>
           <Field
-            label="이름 또는 이메일"
+            label="이메일 (선택)"
             name="email"
-            required
             defaultValue={editing?.email}
-            placeholder="김기사 또는 kim@company.com"
+            placeholder="kim@company.com"
           />
           <SelectField
             label="역할"

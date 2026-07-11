@@ -91,15 +91,17 @@ export async function deleteVehicle(fd: FormData) {
 
 export async function createDriver(fd: FormData) {
   const fleet_id = str(fd, "fleet_id");
-  const label = str(fd, "email"); // email column doubles as display label
+  const name = str(fd, "name");
   if (!fleet_id) throw new Error("플리트를 선택하세요.");
-  if (!label) throw new Error("기사 이름 또는 이메일을 입력하세요.");
+  if (!name) throw new Error("기사 이름을 입력하세요.");
   const db = getAdminClient();
   const { error } = await db.from("fleet_members").insert({
     fleet_id,
     user_id: crypto.randomUUID(),
     role: str(fd, "role") ?? "driver",
-    email: label,
+    name,
+    email: str(fd, "email"),
+    phone: str(fd, "phone"),
   });
   if (error) throw new Error(`기사 등록 실패: ${error.message}`);
   revalidateAll();
@@ -107,11 +109,18 @@ export async function createDriver(fd: FormData) {
 
 export async function updateDriver(fd: FormData) {
   const id = str(fd, "id");
+  const name = str(fd, "name");
   if (!id) throw new Error("기사 ID가 없습니다.");
+  if (!name) throw new Error("기사 이름을 입력하세요.");
   const db = getAdminClient();
   const { error } = await db
     .from("fleet_members")
-    .update({ email: str(fd, "email"), role: str(fd, "role") ?? "driver" })
+    .update({
+      name,
+      email: str(fd, "email"),
+      phone: str(fd, "phone"),
+      role: str(fd, "role") ?? "driver",
+    })
     .eq("id", id);
   if (error) throw new Error(`기사 수정 실패: ${error.message}`);
   revalidateAll();
