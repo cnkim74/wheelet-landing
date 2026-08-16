@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AppleIcon, PlayIcon } from "./icons";
+import { STORE_LINKS } from "@/lib/content";
 
 export function Wordmark({ className }: { className?: string }) {
   return (
@@ -57,7 +58,9 @@ export function StoreButtons({
   return (
     <div className={`flex flex-wrap items-center gap-3.5 ${className}`}>
       <a
-        href="#"
+        href={STORE_LINKS.appStore}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="App Store에서 다운로드"
         className={`flex items-center gap-2.5 rounded-2xl bg-fg text-ink transition-transform hover:-translate-y-0.5 ${pad}`}
       >
@@ -67,17 +70,35 @@ export function StoreButtons({
           <span className="text-base font-bold">App Store</span>
         </span>
       </a>
-      <a
-        href="#"
-        aria-label="Google Play에서 다운로드"
-        className={`flex items-center gap-2.5 rounded-2xl border border-white/20 text-fg transition-transform hover:-translate-y-0.5 hover:border-white/35 ${pad}`}
-      >
-        <PlayIcon className="size-5 text-gold" />
-        <span className="flex flex-col leading-tight">
-          <span className="text-[10px] text-mute-200">GET IT ON</span>
-          <span className="text-base font-bold">Google Play</span>
+      {STORE_LINKS.googlePlay ? (
+        <a
+          href={STORE_LINKS.googlePlay}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Google Play에서 다운로드"
+          className={`flex items-center gap-2.5 rounded-2xl border border-white/20 text-fg transition-transform hover:-translate-y-0.5 hover:border-white/35 ${pad}`}
+        >
+          <PlayIcon className="size-5 text-gold" />
+          <span className="flex flex-col leading-tight">
+            <span className="text-[10px] text-mute-200">GET IT ON</span>
+            <span className="text-base font-bold">Google Play</span>
+          </span>
+        </a>
+      ) : (
+        <span
+          aria-label="Google Play 출시 준비중"
+          className={`flex cursor-default items-center gap-2.5 rounded-2xl border border-white/12 text-mute-300 ${pad}`}
+        >
+          <PlayIcon className="size-5 text-mute-300" />
+          <span className="flex flex-col leading-tight">
+            <span className="text-[10px] text-mute-400">GET IT ON</span>
+            <span className="text-base font-bold">Google Play</span>
+          </span>
+          <span className="ml-1 rounded-full border border-white/15 px-2 py-0.5 text-[10px] font-semibold text-mute-200">
+            준비중
+          </span>
         </span>
-      </a>
+      )}
     </div>
   );
 }

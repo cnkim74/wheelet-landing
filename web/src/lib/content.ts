@@ -1,3 +1,9 @@
+// App store links. Set googlePlay when the Android app is published; null = 준비중.
+export const STORE_LINKS = {
+  appStore: "https://apps.apple.com/app/id6788627879",
+  googlePlay: null as string | null,
+};
+
 export const NAV_LINKS = [
   { href: "#showcase", label: "기능" },
   { href: "#tesla", label: "테슬라" },
