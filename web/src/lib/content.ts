@@ -65,7 +65,7 @@ export const TESLA_STEPS = [
 ];
 
 export const HERO_STATS = [
-  { value: "98%", label: "자동기록 정확도" },
+  { value: "98%", label: "AI 기록 정확도" },
   { value: "₩31만", label: "연평균 절약액" },
   { value: "4.9", label: "스토어 평점" },
 ];
@@ -87,8 +87,8 @@ export const FEATURES: {
   {
     icon: "sparkle",
     tint: "gold",
-    title: "AI 자동 기록",
-    desc: "충전소·주유소 결제를 자동 인식해 장부에 올립니다. 영수증 촬영도, 수기 입력도 필요 없어요.",
+    title: "AI 원클릭 기록",
+    desc: "충전·주유 후 탭 한 번이면 AI가 내역을 채워 장부에 올려요. 영수증 촬영도, 수기 입력도 필요 없이.",
   },
   {
     icon: "pulse",
@@ -125,7 +125,7 @@ export const FEATURES: {
 export const SHOWCASE = [
   {
     index: "01",
-    kicker: "AI 자동 기록",
+    kicker: "AI 원클릭 기록",
     accent: "gold",
     title: ["충전 끝나면,", "원클릭으로 기록 끝"],
     desc: "충전·주유 후 탭 한 번이면, AI가 시간·장소·단가·용량을 채워 장부에 올려요. 영수증 촬영도, 수기 입력도 필요 없이.",
@@ -180,7 +180,7 @@ export const PLANS: {
     badge: "가장 인기",
     cta: "14일 무료 체험",
     features: [
-      "AI 자동 기록 · 인사이트",
+      "AI 원클릭 기록 · 인사이트",
       "차량 무제한",
       "약정거리 예측",
       "테슬라·OBD 연동",
@@ -209,8 +209,8 @@ export const BUSINESS_STATS = [
 
 export const FAQS: { q: string; a: string }[] = [
   {
-    q: "자동 기록은 어떻게 작동하나요?",
-    a: "충전기·주유소 결제 알림을 AI가 인식해 일시·장소·금액·용량을 자동 분류합니다. 잘못 잡힌 기록은 탭 한 번으로 수정할 수 있어요.",
+    q: "AI 기록은 어떻게 작동하나요?",
+    a: "충전·주유 후 탭 한 번이면 AI가 일시·장소·금액·용량을 채워 장부에 올려요. 잘못 잡힌 값은 바로 수정할 수 있고, 테슬라는 연동 시 배터리·주행·충전 이력이 자동으로 동기화됩니다.",
   },
   {
     q: "내연기관·오토바이도 지원하나요?",

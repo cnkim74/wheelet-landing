@@ -31,7 +31,7 @@ export function Hero() {
 
         <Reveal delay={160}>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-mute-200 sm:text-lg">
-            충전·주유 자동 기록, 렌트 약정거리 예측, 월간 리포트까지. 전기차와
+            충전·주유 원클릭 기록, 렌트 약정거리 예측, 월간 리포트까지. 전기차와
             내연기관, 오토바이까지 한 곳에서.
           </p>
         </Reveal>

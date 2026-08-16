@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s · Wheelet",
   },
   description:
-    "충전·주유 자동 기록, 렌트 약정거리 예측, 월간 리포트까지. 전기차와 내연기관, 오토바이까지 한 곳에서 관리하는 AI 차계부 Wheelet.",
+    "충전·주유 원클릭 기록, 렌트 약정거리 예측, 월간 리포트까지. 전기차와 내연기관, 오토바이까지 한 곳에서 관리하는 AI 차계부 Wheelet.",
   keywords: [
     "차계부",
     "AI 차계부",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wheelet · AI 차계부",
     description:
-      "충전·주유 자동 기록부터 약정거리 예측, 월간 리포트까지. 차의 모든 지출을 AI가 알아서.",
+      "충전·주유 원클릭 기록부터 약정거리 예측, 월간 리포트까지. 차의 모든 지출을 AI와 함께.",
     type: "website",
     locale: "ko_KR",
     siteName: "Wheelet",
